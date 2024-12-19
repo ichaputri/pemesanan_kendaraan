@@ -35,7 +35,7 @@
                     <tbody class="table-border-bottom-0">
                         @foreach ($perawatans as $perawatan)
                             <tr>
-                                <td>{{ $perawatan->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $perawatan->kendaraan->nama_kendaraan }}</td>
                                 <td>{{ $perawatan->tanggal_perawatan }}</td>
                                 <td>{{ $perawatan->bbm }} Liter</td>

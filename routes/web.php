@@ -27,9 +27,7 @@ Route::post('/proseslogin', [AuthController::class, 'proseslogin'])->name('prose
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // dashboard
-Route::get('dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 // daftar user
 // Route::resource('users', UserController::class);
@@ -40,18 +38,18 @@ Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.
 
 
 // daftar kendaraan
-Route::resource('kendaraan',KendaraanController::class)->except(['show']);
+Route::resource('kendaraan', KendaraanController::class)->except(['show']);
 // Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan');
 // Route::post('/prosesaddkendaraan', [KendaraanController::class, 'store'])->name('kendaraan.store');
 
 // daftar penyewaan
 // Route::get('/penyewaan', [PemesananController::class, 'index'])->name('pemesanan');
-Route::resource('pemesanan',PemesananController::class)->except(['show']);
+Route::resource('pemesanan', PemesananController::class)->except(['show']);
 Route::get('/approval', [PemesananController::class, 'showApprovalPage'])->name('approval.index');
 Route::put('/approval/{id}', [PemesananController::class, 'updateApproval'])->name('approval.update');
 
 // daftar perawatan
-Route::resource('perawatan',PerawatanController::class)->except(['show']);
+Route::resource('perawatan', PerawatanController::class)->except(['show']);
 // Route::get('/perawatan', [PerawatanController::class, 'index'])->name('perawatan');
 
 // export

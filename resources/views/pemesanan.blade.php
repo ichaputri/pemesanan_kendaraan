@@ -29,7 +29,7 @@
                 <table id="pemesananTable" class="table">
                     <thead class="table-primary">
                         <tr>
-                            <th>ID</th>
+                            <th></th>
                             <th>Kendaraan</th>
                             <th>Pengelola</th>
                             <th>Penyetuju 1</th>
@@ -46,7 +46,7 @@
                     <tbody class="table-border-bottom-0">
                         @foreach ($pemesanans as $pemesanan)
                             <tr>
-                                <td>{{ $pemesanan->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $pemesanan->kendaraan->nama_kendaraan }}</td>
                                 <td>{{ $pemesanan->pengelolaUser->username ?? 'N/A' }}</td>
                                 <td>{{ $pemesanan->penyetuju1User->username ?? 'N/A' }}</td>
